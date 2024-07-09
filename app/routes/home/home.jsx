@@ -40,6 +40,7 @@ import postgresIcon from '~/assets/tech-stack/postgres.png';
 import dockerIcon from '~/assets/tech-stack/docker.png';
 import jenkinsIcon from '~/assets/tech-stack/jenkins.png';
 import { IconButton } from '~/components/iconButton/iconButton';
+import { Connect as FinalConnect } from './connect';
 
 import { Link as RouterLink, useLocation } from '@remix-run/react';
 import {
@@ -90,6 +91,7 @@ export const Home = () => {
   const projectTwo = useRef();
   const projectThree = useRef();
   const details = useRef();
+  const finalconnect = useRef();
 
   useEffect(() => {
     const sections = [intro, projectOne, projectTwo, projectThree, details];
@@ -258,6 +260,7 @@ export const Home = () => {
           ],
         }}
       />
+      <FinalConnect sectionRef={finalconnect} visible={true} id="finalconnect" />
       <Footer />
     </div>
   );

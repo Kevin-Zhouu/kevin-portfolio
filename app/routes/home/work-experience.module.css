@@ -1,0 +1,183 @@
+:root {
+    --primary-color:  oklch(0% 0.03 230);
+    --timeline-color:  oklch(50% 0.03 230);
+    --circle-bg: oklch(100% 0 0); /* white */
+    --title-color:  oklch(0% 0.03 230);
+    --role-color: oklch(40% 0.03 230); /* Darker blue-green */
+    --text-color: oklch(50% 0.03 230); /* Slightly lighter than role color */
+    --responsibilities-color: oklch(40% 0.03 230); /* Same as role color */
+  }
+  
+  [data-theme='dark'] {
+    --primary-color: oklch(84.42% 0.19 202.24); /* Keeping the same as light theme for consistency */
+    --timeline-color: oklch(84.42% 0.19 202.24);
+    --circle-bg: oklch(25% 0.02 230); /* Dark blue-green background */
+    --title-color: oklch(84.42% 0.19 202.24);
+    --role-color: oklch(90% 0.02 230); /* Light blue-green */
+    --text-color: oklch(80% 0.02 230); /* Slightly darker than role color */
+    --responsibilities-color: oklch(90% 0.02 230); /* Same as role color */
+  }
+  .workExperience {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px;
+  }
+  
+  .timeline {
+    position: relative;
+  }
+  
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 120px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--primary-color);
+  }
+  
+  .timelineItem {
+    display: flex;
+    margin-bottom: 30px;
+  }
+  
+  .dateColumn {
+    flex: 0 0 120px;
+    padding-right: 20px;
+    text-align: right;
+  }
+  
+  .date {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    font-size: 0.9rem;
+    color: var(--textLight);
+  }
+  
+  .date svg {
+    margin-right: 5px;
+  }
+  
+  .card {
+    flex: 1;
+    background: var(--backgroundLight);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-left: 20px;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .card::before {
+    content: '';
+    position: absolute;
+    left: -26px;
+    top: 20px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    border: 2px solid var(--background);
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  }
+  
+  .cardHeader {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  .logo {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    margin-right: 15px;
+    border-radius: 8px;
+    background-color: var(--background);
+    padding: 5px;
+  }
+  
+  .headerText {
+    flex: 1;
+  }
+  
+  .company {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+  }
+  
+  .role {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--textTitle);
+  }
+  
+  .location {
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
+    color: var(--textLight);
+    margin-bottom: 15px;
+  }
+  
+  .location svg {
+    margin-right: 5px;
+  }
+  
+  .responsibilities {
+    list-style-type: none;
+    padding: 0;
+    color: var(--textBody);
+  }
+  
+  .responsibilities li {
+    margin-bottom: 8px;
+    position: relative;
+    padding-left: 20px;
+  }
+  
+  .responsibilities li::before {
+    content: '▹';
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+  }
+  
+  @media (max-width: 768px) {
+    .timeline::before {
+      left: 20px;
+    }
+  
+    .timelineItem {
+      flex-direction: column;
+    }
+  
+    .dateColumn {
+      flex: 0 0 auto;
+      text-align: left;
+      padding-right: 0;
+      padding-left: 40px;
+      margin-bottom: 10px;
+    }
+  
+    .date {
+      justify-content: flex-start;
+    }
+  
+    .card {
+      margin-left: 40px;
+    }
+  
+    .card::before {
+      left: -46px;
+    }
+  }

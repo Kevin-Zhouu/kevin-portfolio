@@ -1,92 +1,96 @@
 import React from 'react';
-import { Clock, MapPin } from 'lucide-react';
-
+import { MapPin, Calendar } from 'lucide-react';
+import styles from './work-experience.module.css';
+import suncorpLogo from '~/assets/suncorp-logo.jpg';
+import unimelbLogo from '~/assets/unimelb-logo.jpg';
+import agtuaryLogo from '~/assets/agtuary-logo.png';
+import melodifyLogo from '~/assets/melodify-logo.png';
 const WorkExperience = () => {
   const experiences = [
     {
-      company: 'Gramedia',
-      role: 'Senior DevOps Engineer',
-      period: 'May 2024 - Present',
-      location: 'Jakarta, Indonesia',
+      company: 'Agtuary',
+      role: 'Full Stack Software Engineer',
+      startDate: 'May 2022',
+      endDate: 'Aug 2023',
+      location: 'Melbourne, Australia',
       responsibilities: [
-        'Lead DevOps initiatives and best practices across the organization',
-        'Implement and maintain CI/CD pipelines for multiple projects',
-        'Optimize cloud infrastructure for cost and performance',
+        'Implemented a CI/CD pipeline using GitHub Actions, supporting automated deployment to AppStore and Google Play',
+        'Actively manage, improve, and monitor cloud infrastructure services on AWS and GCP, including backups, patches, and scaling.',
       ],
+      logoUrl: agtuaryLogo, // Replace with actual path
     },
     {
-      company: 'Lion Parcel',
-      role: 'Site Reliability Engineer (SRE)',
-      period: 'Jan 2021 - May 2024',
-      location: 'Jakarta, Indonesia',
+      company: 'The University of Melbourne',
+      role: 'Security Engineer (Intern)',
+      startDate: 'Nov 2023',
+      endDate: 'Feb 2024',
+      location: 'Melbourne, Australia',
+      responsibilities: [
+        'Developed and deployed automation scripts with Python, Bash and AWS EC2, enabling real-time monitoring of SSH traffic across over 70,000 IP ranges and 500 critical Linux hosts within the University HPC cluster',
+      ],
+      logoUrl: unimelbLogo, // Replace with actual path
+    },
+    {
+      company: 'Suncorp Group',
+      role: 'Platform Engineer (Intern)',
+      startDate: 'Nov 2023',
+      endDate: 'Feb 2024',
+      location: 'Melbourne, Australia',
       responsibilities: [
         'Provide technical support and assistance to developers, addressing their problems and needs, ensuring smooth development processes.',
-        'Utilize JIRA for project management and issue tracking, ensuring efficient collaboration and task management.',
-        'Develop and maintain an automated CI/CD pipeline using Jenkins, enabling seamless code deployment for every release.',
-        'Create and maintain deployment processes for mobile apps on Android and iOS platforms, ensuring efficient and reliable distribution.',
-        'Provision infrastructure, servers, and services using Terraform, enabling scalable and consistent deployment and management.',
-        'Set up and monitoring, tracing, and logging tools such as ELK, Grafana, and Datadog, ensuring comprehensive visibility into system performance and issues.',
-        'Implement monitoring alerts for services, databases, and logs, reducing the occurrence of errors in production environments.',
         'Manage and monitor a Kubernetes-based container cluster, ensuring high availability with a 99.9% uptime.',
         'Actively manage, improve, and monitor cloud infrastructure services on AWS and GCP, including backups, patches, and scaling.',
       ],
+      logoUrl: suncorpLogo, // Replace with actual path
     },
     {
-      company: 'Tech Innovators',
-      role: 'DevOps Engineer',
-      period: 'Jun 2019 - Dec 2020',
-      location: 'Surabaya, Indonesia',
+      company: 'Melodify AI',
+      role: 'DevOps and Software Engineer',
+      startDate: 'May 2024',
+      endDate: 'Present',
+      location: 'Melbourne, Australia',
       responsibilities: [
-        'Implemented containerization strategies using Docker',
-        'Managed and optimized AWS cloud infrastructure',
-        'Developed automation scripts to streamline deployment processes',
+        'Implement and maintain CI/CD pipelines for the projects',
+        'Developed and deployed an AI SaaS with AWS Lambda, GPT4 and Next.js',
       ],
-    },
-    {
-      company: 'StartUp Dynamo',
-      role: 'Junior Systems Administrator',
-      period: 'Feb 2018 - May 2019',
-      location: 'Bandung, Indonesia',
-      responsibilities: [
-        'Maintained and troubleshot Linux-based systems',
-        'Assisted in implementing backup and disaster recovery solutions',
-        'Collaborated with development teams to improve system performance',
-      ],
+      logoUrl: melodifyLogo, // Replace with actual path
     },
   ];
 
   return (
-    <div className="max-w-2xl mx-auto p-4 bg-gray-100 rounded-lg shadow">
-      <div className="relative pl-12">
-        {/* Continuous timeline */}
-        <div className="absolute left-[15px] top-0 bottom-0 w-px bg-blue-300"></div>
-
+    <div className={styles.workExperience}>
+      <div className={styles.timeline}>
         {experiences.map((exp, index) => (
-          <div key={index} className="mb-12 last:mb-0 relative">
-            {/* Timeline circle */}
-            <div className="absolute left-0 w-[30px] h-[30px] bg-white border-4 border-blue-500 rounded-full -ml-[15px] mt-1"></div>
-            <div className="ml-8">
-              <h2 className="text-xl font-bold text-blue-600">{exp.company}</h2>
-              <h3 className="text-lg font-semibold text-gray-800">{exp.role}</h3>
-              <div className="flex items-center text-sm text-gray-600 mt-1">
-                <Clock size={16} className="mr-2" />
-                <span>{exp.period}</span>
+          <div key={index} className={styles.timelineItem}>
+            <div className={styles.dateColumn}>
+              <div className={styles.date}>
+                <Calendar size={14} />
+                <span>
+                  {exp.startDate} - {exp.endDate}
+                </span>
               </div>
-              {exp.location && (
-                <div className="flex items-center text-sm text-gray-600 mt-1">
-                  <MapPin size={16} className="mr-2" />
-                  <span>{exp.location}</span>
+            </div>
+            <div className={styles.card}>
+              <div className={styles.cardHeader}>
+                <img
+                  src={exp.logoUrl}
+                  alt={`${exp.company} logo`}
+                  className={styles.logo}
+                />
+                <div className={styles.headerText}>
+                  <h2 className={styles.company}>{exp.company}</h2>
+                  <h3 className={styles.role}>{exp.role}</h3>
                 </div>
-              )}
-              {exp.responsibilities.length > 0 && (
-                <ul className="list-disc list-inside mt-2 text-gray-700">
-                  {exp.responsibilities.map((resp, respIndex) => (
-                    <li key={respIndex} className="mt-1">
-                      {resp}
-                    </li>
-                  ))}
-                </ul>
-              )}
+              </div>
+              <div className={styles.location}>
+                <MapPin size={14} />
+                <span>{exp.location}</span>
+              </div>
+              <ul className={styles.responsibilities}>
+                {exp.responsibilities.map((resp, respIndex) => (
+                  <li key={respIndex}>{resp}</li>
+                ))}
+              </ul>
             </div>
           </div>
         ))}

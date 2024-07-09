@@ -148,6 +148,15 @@
   }
 }
 
+.techstackContainer{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: var(--spaceS);
+  margin-bottom: var(--spaceXL);
+
+}
+
 .svg {
   opacity: 0;
   transition: opacity 1200ms ease 1400ms;
@@ -245,6 +254,7 @@
   transition-duration: var(--durationXL);
   transition-delay: var(--durationL);
   opacity: 0;
+  font-size: 14px;
 
   @media (--mediaUseMotion) {
     transition-property: transform, opacity;

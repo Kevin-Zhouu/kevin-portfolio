@@ -91,6 +91,7 @@
   .cardHeader {
     display: flex;
     align-items: center;
+    font-size: 16px;
     margin-bottom: 15px;
   }
   
@@ -105,18 +106,20 @@
   }
   
   .headerText {
+    display: flex;
     flex: 1;
+    flex-direction: column;
   }
   
   .company {
-    font-size: 1.3rem;
+    font-size: 16px;
     font-weight: bold;
     color: var(--primary-color);
     margin-bottom: 5px;
   }
   
   .role {
-    font-size: 1rem;
+    font-size: 16px;
     font-weight: 600;
     color: var(--textTitle);
   }
@@ -137,6 +140,9 @@
     list-style-type: none;
     padding: 0;
     color: var(--textBody);
+  }
+  .responsibilityText{
+    font-size: 14px;
   }
   
   .responsibilities li {

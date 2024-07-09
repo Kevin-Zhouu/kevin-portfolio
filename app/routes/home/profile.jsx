@@ -13,20 +13,25 @@ import { Transition } from '~/components/transition';
 import { Fragment, useState } from 'react';
 import { media } from '~/utils/style';
 import katakana from './katakana.svg';
+import workshop from '~/assets/workshop.jpg';
 import styles from './profile.module.css';
 
 const ProfileText = ({ visible, titleId }) => (
   <Fragment>
     <Heading className={styles.title} data-visible={visible} level={3} id={titleId}>
-      <DecoderText text="Hi there" start={visible} delay={500} />
+      <DecoderText text="Hi, I'm Kevin!" start={visible} delay={500} />
     </Heading>
     <Text className={styles.description} data-visible={visible} size="l" as="p">
-      Kevin here! I'm a final-year university student with a track record of delivering
-      critical projects for the cloud migration of top ASX-listed companies like Acumentis
-      Group and Suncorp. I've also won two major hackathons. <br></br>Currently, I’m
-      upskilling in AWS, Terraform, Ansible, and Kubernetes, diving deep into the world of
-      DevOps. I’m eager to bring my passion and skills to impactful DevOps and cloud
-      engineering projects.
+      I'm a software engineer with extensive experience with <b>React</b>, <b>AWS</b>,{' '}
+      <b>React Native</b> and have done DevOps work with <b>Kubernetes</b> and{' '}
+      <b>CI/CD</b> pipelines.<br></br>
+      <br></br>
+      In the past, I have worked at <b>Suncorp Group</b>, <b>Agtuary</b> and{' '}
+      <b>University of Melbourne</b>
+      <br></br>
+      <br></br>I love hackathons, public speaking, and workshops! I have won two major
+      Australian hackathons and host workshops at the University of Melbourne with CISSA,
+      teaching React, Generative AI, and software development.
     </Text>
   </Fragment>
 );
@@ -51,15 +56,6 @@ export const Profile = ({ id, visible, sectionRef }) => {
           <div className={styles.content} ref={nodeRef}>
             <div className={styles.column}>
               <ProfileText visible={visible} titleId={titleId} />
-              <Button
-                secondary
-                className={styles.button}
-                data-visible={visible}
-                href="/contact"
-                icon="send"
-              >
-                Send me a message
-              </Button>
             </div>
             <div className={styles.column}>
               <div className={styles.tag} aria-hidden>
@@ -78,7 +74,7 @@ export const Profile = ({ id, visible, sectionRef }) => {
                   reveal
                   delay={100}
                   placeholder={profileImgPlaceholder}
-                  srcSet={`${profileImg} 480w, ${profileImgLarge} 960w`}
+                  srcSet={`${workshop} 480w, ${workshop} 960w`}
                   width={960}
                   height={1280}
                   sizes={`(max-width: ${media.mobile}px) 100vw, 480px`}

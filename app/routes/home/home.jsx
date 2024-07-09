@@ -19,10 +19,41 @@ import { baseMeta } from '~/utils/meta';
 import { Intro } from './intro';
 import { Profile } from './profile';
 import { ProjectSummary } from './project-summary';
+import { Heading } from '~/components/heading';
+import { Button } from '~/components/button';
+import { Section } from '~/components/section';
 import { useEffect, useRef, useState } from 'react';
 import WorkExperience from './workexpeirnece';
 import config from '~/config.json';
 import styles from './home.module.css';
+import Social from './social';
+
+import reactIcon from '~/assets/tech-stack/react.png';
+import reactNativeIcon from '~/assets/tech-stack/react-native.svg';
+import typescriptIcon from '~/assets/tech-stack/typescript.png';
+import javaScriptIcon from '~/assets/tech-stack/javascript.png';
+import kubernetesIcon from '~/assets/tech-stack/kubernetes.png';
+import figmaIcon from '~/assets/tech-stack/figma.png';
+import springbootIcon from '~/assets/tech-stack/springboot.png';
+import awsIcon from '~/assets/tech-stack/aws.png';
+import postgresIcon from '~/assets/tech-stack/postgres.png';
+import dockerIcon from '~/assets/tech-stack/docker.png';
+import jenkinsIcon from '~/assets/tech-stack/jenkins.png';
+import { IconButton } from '~/components/iconButton/iconButton';
+
+import { Link as RouterLink, useLocation } from '@remix-run/react';
+import {
+  ProjectBackground,
+  ProjectContainer,
+  ProjectHeader,
+  ProjectImage,
+  ProjectSection,
+  ProjectSectionColumns,
+  ProjectSectionContent,
+  ProjectSectionHeading,
+  ProjectSectionText,
+  ProjectTextRow,
+} from '~/layouts/project';
 
 // Prefetch draco decoader wasm
 export const links = () => {
@@ -104,6 +135,22 @@ export const Home = () => {
         scrollIndicatorHidden={scrollIndicatorHidden}
       />
 
+      <Profile
+        sectionRef={details}
+        visible={visibleSections.includes(details.current)}
+        id="details"
+      />
+      <ProjectSectionContent>
+        <ProjectTextRow center>
+          <ProjectSectionHeading>My Work Experience</ProjectSectionHeading>
+        </ProjectTextRow>
+      </ProjectSectionContent>
+      {/* <Section>
+        <Heading as="h4" level={4}>
+          Work Experience
+        </Heading>
+      </Section> */}
+      <div className={styles.sectionTitle}></div>
       <WorkExperience></WorkExperience>
       <ProjectSummary
         id="project-1"
@@ -111,11 +158,31 @@ export const Home = () => {
         visible={visibleSections.includes(projectOne.current)}
         index={1}
         title="Agtuary Evaluation"
-        description="As the mobile lead at a VC-backed tech startup, I designed and developed the Agtuary Evaluation App, a cloud-based intelligent solution for agricultural inspections and valuations"
-        buttonText="View project"
+        description="A cloud-based property valuation mobile platform designed for agricultural assessments"
+        buttonText="AppStore"
         buttonLink="https://apps.apple.com/au/app/agtuary-evaluation/id1641840152"
-        techstack="React Native, AWS, Postgres, Redux, Figma, TypeScript, Jest, GraphQL"
-        impact="Used daily by top ASX-listed companies like Acumentis Group and Commonwealth Bank"
+        techstack={
+          <>
+            <br></br>
+            Frontend: React Native, Redux, Google Maps SDK <br></br>Backend: Nest.js, AWS
+            EC2, AWS S3, Postgres, Jest
+          </>
+        }
+        techstackIcons={
+          <>
+            <IconButton file={reactNativeIcon} />
+            <IconButton file={awsIcon} />
+            <IconButton file={typescriptIcon} />
+            <IconButton file={figmaIcon} />
+            <IconButton file={postgresIcon} />
+          </>
+        }
+        impact={
+          <>
+            Managing over $20M worth of assets<br></br>
+            Used daily by top ASX-listed companies like <b>Acumentis Group</b>
+          </>
+        }
         model={{
           type: 'phone',
           alt: 'App login screen',
@@ -137,10 +204,26 @@ export const Home = () => {
         visible={visibleSections.includes(projectTwo.current)}
         index={2}
         title="Suncorp Policy Generation Microservice"
-        description="I co-led the development of a critical Cloud Native Microservice that enhances developer efficiency by abstracting complex environments. It is designed to ensure scalability and high availability for handling peak insurance claim volumes"
+        description={
+          <>
+            A Cloud Native Microservice provides insurance policy generation service for
+            one of the largest fintech companies in Australia. Supported Suncorp's brands
+            including <b>AAMI</b>, <b>GIO</b>, <b>Bingle</b>, and <b>Suncorp Insurance</b>{' '}
+            It is running in production since Febuary 2024
+          </>
+        }
         buttonText="View my story"
-        techstack="Springboot, AWS, Java, Kubernetes, Jenkins"
-        buttonLink="https://gamestack.hamishw.com"
+        techstack="Springboot, Java, Kubernetes, Jenkins, Docker, AWS"
+        techstackIcons={
+          <>
+            <IconButton file={springbootIcon} />
+            <IconButton file={awsIcon} />
+            <IconButton file={kubernetesIcon} />
+            <IconButton file={jenkinsIcon} />
+            <IconButton file={dockerIcon} />
+          </>
+        }
+        buttonLink="https://github.com/Kevin-Zhouu/Suncorp-Insurance-Policy-Generator"
         impact="Deployed to production and used daily by nearly all engineering teams across Suncorp"
         model={{
           type: 'laptop',
@@ -174,11 +257,6 @@ export const Home = () => {
             },
           ],
         }}
-      />
-      <Profile
-        sectionRef={details}
-        visible={visibleSections.includes(details.current)}
-        id="details"
       />
       <Footer />
     </div>

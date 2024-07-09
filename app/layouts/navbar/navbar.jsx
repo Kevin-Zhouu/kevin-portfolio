@@ -140,67 +140,68 @@ export const Navbar = () => {
   };
 
   return (
-    <header className={styles.navbar} ref={headerRef}>
-      <RouterLink
-        unstable_viewTransition
-        prefetch="intent"
-        to={location.pathname === '/' ? '/#intro' : '/'}
-        data-navbar-item
-        className={styles.logo}
-        aria-label={`${config.name}, ${config.role}`}
-        onClick={handleMobileNavClick}
-      >
-        <Monogram highlight />
-      </RouterLink>
-      <NavToggle onClick={() => setMenuOpen(!menuOpen)} menuOpen={menuOpen} />
-      <nav className={styles.nav}>
-        <div className={styles.navList}>
-          {navLinks.map(({ label, pathname }) => (
-            <RouterLink
-              unstable_viewTransition
-              prefetch="intent"
-              to={pathname}
-              key={label}
-              data-navbar-item
-              className={styles.navLink}
-              aria-current={getCurrent(pathname)}
-              onClick={handleNavItemClick}
-            >
-              {label}
-            </RouterLink>
-          ))}
-        </div>
-        <NavbarIcons desktop />
-      </nav>
-      <Transition unmount in={menuOpen} timeout={msToNum(tokens.base.durationL)}>
-        {({ visible, nodeRef }) => (
-          <nav className={styles.mobileNav} data-visible={visible} ref={nodeRef}>
-            {navLinks.map(({ label, pathname }, index) => (
-              <RouterLink
-                unstable_viewTransition
-                prefetch="intent"
-                to={pathname}
-                key={label}
-                className={styles.mobileNavLink}
-                data-visible={visible}
-                aria-current={getCurrent(pathname)}
-                onClick={handleMobileNavClick}
-                style={cssProps({
-                  transitionDelay: numToMs(
-                    Number(msToNum(tokens.base.durationS)) + index * 50
-                  ),
-                })}
-              >
-                {label}
-              </RouterLink>
-            ))}
-            <NavbarIcons />
-            <ThemeToggle isMobile />
-          </nav>
-        )}
-      </Transition>
-      {!isMobile && <ThemeToggle data-navbar-item />}
-    </header>
+    // <header className={styles.navbar} ref={headerRef}>
+    //   <RouterLink
+    //     unstable_viewTransition
+    //     prefetch="intent"
+    //     to={location.pathname === '/' ? '/#intro' : '/'}
+    //     data-navbar-item
+    //     className={styles.logo}
+    //     aria-label={`${config.name}, ${config.role}`}
+    //     onClick={handleMobileNavClick}
+    //   >
+    //     <Monogram highlight />
+    //   </RouterLink>
+    //   <NavToggle onClick={() => setMenuOpen(!menuOpen)} menuOpen={menuOpen} />
+    //   <nav className={styles.nav}>
+    //     <div className={styles.navList}>
+    //       {navLinks.map(({ label, pathname }) => (
+    //         <RouterLink
+    //           unstable_viewTransition
+    //           prefetch="intent"
+    //           to={pathname}
+    //           key={label}
+    //           data-navbar-item
+    //           className={styles.navLink}
+    //           aria-current={getCurrent(pathname)}
+    //           onClick={handleNavItemClick}
+    //         >
+    //           {label}
+    //         </RouterLink>
+    //       ))}
+    //     </div>
+    //     <NavbarIcons desktop />
+    //   </nav>
+    //   <Transition unmount in={menuOpen} timeout={msToNum(tokens.base.durationL)}>
+    //     {({ visible, nodeRef }) => (
+    //       <nav className={styles.mobileNav} data-visible={visible} ref={nodeRef}>
+    //         {navLinks.map(({ label, pathname }, index) => (
+    //           <RouterLink
+    //             unstable_viewTransition
+    //             prefetch="intent"
+    //             to={pathname}
+    //             key={label}
+    //             className={styles.mobileNavLink}
+    //             data-visible={visible}
+    //             aria-current={getCurrent(pathname)}
+    //             onClick={handleMobileNavClick}
+    //             style={cssProps({
+    //               transitionDelay: numToMs(
+    //                 Number(msToNum(tokens.base.durationS)) + index * 50
+    //               ),
+    //             })}
+    //           >
+    //             {label}
+    //           </RouterLink>
+    //         ))}
+    //         <NavbarIcons />
+    //         <ThemeToggle isMobile />
+    //       </nav>
+    //     )}
+    //   </Transition>
+    //   {!isMobile && <ThemeToggle data-navbar-item />}
+    // </header>
+    <></>
   );
 };
 

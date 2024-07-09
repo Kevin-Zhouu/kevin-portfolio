@@ -14,8 +14,10 @@ const WorkExperience = () => {
       endDate: 'Aug 2023',
       location: 'Melbourne, Australia',
       responsibilities: [
+        'Led the development of the MVP of a full stack enterprise platform with AWS, React, Figma and React Native',
+        'Designed and managed Postgres database with Terraform, and implemented backend API with Nest.js and Docker',
         'Implemented a CI/CD pipeline using GitHub Actions, supporting automated deployment to AppStore and Google Play',
-        'Actively manage, improve, and monitor cloud infrastructure services on AWS and GCP, including backups, patches, and scaling.',
+        'Developed and maintained an internal React library of 53 reusable UI components',
       ],
       logoUrl: agtuaryLogo, // Replace with actual path
     },
@@ -26,7 +28,7 @@ const WorkExperience = () => {
       endDate: 'Feb 2024',
       location: 'Melbourne, Australia',
       responsibilities: [
-        'Developed and deployed automation scripts with Python, Bash and AWS EC2, enabling real-time monitoring of SSH traffic across over 70,000 IP ranges and 500 critical Linux hosts within the University HPC cluster',
+        'Wrote and deployed automation scripts with Python, Bash, Linux and AWS EC2 for real-time monitoring of SSH traffic',
       ],
       logoUrl: unimelbLogo, // Replace with actual path
     },
@@ -37,9 +39,10 @@ const WorkExperience = () => {
       endDate: 'Feb 2024',
       location: 'Melbourne, Australia',
       responsibilities: [
-        'Provide technical support and assistance to developers, addressing their problems and needs, ensuring smooth development processes.',
-        'Manage and monitor a Kubernetes-based container cluster, ensuring high availability with a 99.9% uptime.',
-        'Actively manage, improve, and monitor cloud infrastructure services on AWS and GCP, including backups, patches, and scaling.',
+        'Developed and deployed a scalable cloud native microservice using AWS, Java and Kubernetes',
+        'Implemented a CI/CD pipeline with Jenkins, Docker, and Kubernetes',
+        'Led development of a developer platform with React.js and TypeScript',
+        'Actively manage, improve, and monitor cloud infrastructure services on AWS , including backups, patches, and scaling',
       ],
       logoUrl: suncorpLogo, // Replace with actual path
     },
@@ -78,8 +81,8 @@ const WorkExperience = () => {
                   className={styles.logo}
                 />
                 <div className={styles.headerText}>
-                  <h2 className={styles.company}>{exp.company}</h2>
-                  <h3 className={styles.role}>{exp.role}</h3>
+                  <span className={styles.company}>{exp.company}</span>
+                  <span className={styles.role}>{exp.role}</span>
                 </div>
               </div>
               <div className={styles.location}>
@@ -88,7 +91,9 @@ const WorkExperience = () => {
               </div>
               <ul className={styles.responsibilities}>
                 {exp.responsibilities.map((resp, respIndex) => (
-                  <li key={respIndex}>{resp}</li>
+                  <li key={respIndex}>
+                    <p className={styles.responsibilityText}>{resp}</p>
+                  </li>
                 ))}
               </ul>
             </div>

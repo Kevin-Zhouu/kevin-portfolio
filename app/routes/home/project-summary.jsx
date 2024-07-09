@@ -26,6 +26,7 @@ export function ProjectSummary({
   title,
   description,
   techstack,
+  techstackIcons,
   impact,
   model,
   buttonText,
@@ -91,13 +92,18 @@ export function ProjectSummary({
         <Text className={styles.description} data-visible={visible} as="p">
           {description}
         </Text>
-        <Text className={styles.description} data-visible={visible} as="p">
-          Tech Stack: {techstack}
-        </Text>
+
         <Text className={styles.description} data-visible={visible} as="p">
           {impact}
         </Text>
+        <Text className={styles.description} data-visible={visible} as="p">
+          <b>Tech Stack: </b>
+          {techstack}
+        </Text>
         <div className={styles.button} data-visible={visible}>
+          {techstackIcons && (
+            <div className={styles.techstackContainer}>{techstackIcons}</div>
+          )}
           <Button iconHoverShift href={buttonLink} iconEnd="arrow-right">
             {buttonText}
           </Button>
@@ -111,7 +117,7 @@ export function ProjectSummary({
       <div className={styles.preview}>
         {model.type === 'laptop' && (
           <>
-            {renderKatakana('laptop', visible)}
+            {/* {renderKatakana('laptop', visible)} */}
             <div className={styles.model} data-device="laptop">
               {!modelLoaded && (
                 <Loader center className={styles.loader} data-visible={visible} />
@@ -141,7 +147,7 @@ export function ProjectSummary({
         )}
         {model.type === 'phone' && (
           <>
-            {renderKatakana('phone', visible)}
+            {/* {renderKatakana('phone', visible)} */}
             <div className={styles.model} data-device="phone">
               {!modelLoaded && (
                 <Loader center className={styles.loader} data-visible={visible} />

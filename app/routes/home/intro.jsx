@@ -12,6 +12,14 @@ import { cssProps } from '~/utils/style';
 import config from '~/config.json';
 import { useHydrated } from '~/hooks/useHydrated';
 import styles from './intro.module.css';
+import Social from './social';
+
+import reactIcon from '~/assets/tech-stack/react.png';
+import reactNativeIcon from '~/assets/tech-stack/react-native.svg';
+import typescriptIcon from '~/assets/tech-stack/typescript.png';
+import javaScriptIcon from '~/assets/tech-stack/javascript.png';
+import kubernetesIcon from '~/assets/tech-stack/kubernetes.png';
+import awsIcon from '~/assets/tech-stack/aws.png';
 
 const DisplacementSphere = lazy(() =>
   import('./displacement-sphere').then(module => ({ default: module.DisplacementSphere }))
@@ -72,7 +80,7 @@ export function Intro({ id, sectionRef, scrollIndicatorHidden, ...rest }) {
               <h1 className={styles.name} data-visible={visible} id={titleId}>
                 <DecoderText text={config.name} delay={500} />
               </h1>
-              <Heading level={0} as="h2" className={styles.title}>
+              <Heading level={1} as="h1" className={styles.title}>
                 <VisuallyHidden className={styles.label}>
                   {`${config.role} + ${introLabel}`}
                 </VisuallyHidden>
@@ -109,6 +117,20 @@ export function Intro({ id, sectionRef, scrollIndicatorHidden, ...rest }) {
                     </Transition>
                   ))}
                 </div>
+                <Social />
+                {/* <div>
+                  <h1 className={styles.name} data-visible={visible} id={titleId}>
+                    <DecoderText text={'Tech Stack'} delay={500} />
+                  </h1>
+                  <div>
+                    <img src={reactIcon} className={styles.navIcon} width={30} />
+                    <img src={reactNativeIcon} className={styles.navIcon} width={30} />
+                    <img src={awsIcon} className={styles.navIcon} width={30} />
+                    <img src={kubernetesIcon} className={styles.navIcon} width={30} />
+                    <img src={typescriptIcon} className={styles.navIcon} width={30} />
+                    <img src={javaScriptIcon} className={styles.navIcon} width={30} />
+                  </div>
+                </div> */}
               </Heading>
             </header>
             <RouterLink

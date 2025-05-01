@@ -10,8 +10,8 @@ const WorkExperience = () => {
     {
       company: 'Agtuary',
       role: 'Full Stack Software Engineer',
-      startDate: 'May 2022',
-      endDate: 'Aug 2023',
+      startDate: 'June 2022',
+      endDate: 'July 2023',
       location: 'Melbourne, Australia',
       responsibilities: [
         'Led the development of the MVP of a full stack enterprise platform with AWS, React, Figma and React Native',
@@ -34,7 +34,7 @@ const WorkExperience = () => {
     },
     {
       company: 'Suncorp Group',
-      role: 'Platform Engineer (Intern)',
+      role: 'Software Engineer (Intern)',
       startDate: 'Nov 2023',
       endDate: 'Feb 2024',
       location: 'Melbourne, Australia',

@@ -10,7 +10,7 @@ export const Footer = ({ className }) => (
       <span className={styles.date}>
         {`© ${new Date().getFullYear()} Built by ${config.name} with ❤️`}
       </span>
-      <p style={{ color: '#3b3b3b' }}>Speacial thank to HamishMW</p>
+      <p style={{ color: '#3b3b3b' }}>2025</p>
     </Text>
   </footer>
 );
